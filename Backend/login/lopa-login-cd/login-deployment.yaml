@@ -1,0 +1,44 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: login
+  name: login
+spec:
+  ports:
+  - port: 8083
+    protocol: TCP
+    targetPort: 8083
+  selector:
+    app: login
+  type: ClusterIP
+
+
+...
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: login
+  name: login
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: login
+  template:
+    metadata:
+      labels:
+        app: login
+    spec:
+      containers:
+      - image: lopanath12345/itc-project:lopa-login-image21
+        name: login
+        env:
+        - name: "spring.datasource.username"
+          value: root
+        - name: "spring.datasource.password"
+          value: root1234

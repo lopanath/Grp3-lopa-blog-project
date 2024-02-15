@@ -1,0 +1,38 @@
+<!-- blog-post-form.component.html -->
+<div class="ab" style="background-image: url(./assets/pic.jpeg);">
+    <form class="blog-post-form" #blogPostForm="ngForm" (ngSubmit)="onSubmit()" style="text-align:center; background-color: ">
+       <h2 style="text-align:center; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"><b>Upload New Article</b></h2>
+       <br>
+       <br>
+        <div class="form-group" >
+            <label for="title" style="font-style: italic;font-family: cursive;font-size: large;">Title:</label>
+            <input type="text" id="title" name="title" [(ngModel)]="blogPost.title" required>
+        </div>
+        <div class="form-group">
+            <label for="content"  style="font-style: italic;font-family: cursive;font-size: large;">Content:</label>
+            <textarea id="content" name="content" [(ngModel)]="blogPost.content" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="author"  style="font-style: italic;font-family: cursive;font-size: large;">Author:</label>
+            <input type="text" id="author" name="author" [(ngModel)]="blogPost.author" required>
+        </div>
+        <div class="form-group">
+            <label for="date"  style="font-style: italic;font-family: cursive;font-size: large;">Date Of Upload:</label>
+            <input type="date" id="date" name="date" style="text-align:center" [(ngModel)]="blogPost.date" required>
+        </div>
+        <div class="form-group">
+            <label for="tags"  style="font-style: italic;font-family: cursive;font-size: large;">Tags:</label>
+            <input type="text" id="tags" name="tags" [(ngModel)]="blogPost.tags" required>
+        </div>
+        <div class="form-group">
+            <label for="url"  style="font-style: italic;font-family: cursive;font-size: large;">URL:</label>
+            <input type="url" id="url" name="url" [(ngModel)]="blogPost.url">
+        </div>
+        <br>
+        <div class="form-actions">
+            <button  class="btn-read"  [disabled]="blogPostForm.invalid">Submit</button>
+            <button routerLink="/posts" class="btn-back" >Back</button>
+        </div>
+    </form>
+    </div>
+    

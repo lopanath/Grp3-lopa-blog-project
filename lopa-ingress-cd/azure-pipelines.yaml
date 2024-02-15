@@ -1,0 +1,8 @@
+steps:
+- task: KubernetesManifest@0
+  displayName: Deploy
+  inputs:
+    kubernetesServiceConnection: lopa-kubernetes-serviceconnection
+    namespace: default
+    manifests: |
+      ingressrules.yaml

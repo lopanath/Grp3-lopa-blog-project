@@ -1,0 +1,46 @@
+<div class="a" style="background-image: url(./assets/add.jpeg);">
+    <div class="container" style="width:auto; margin: auto; ">
+    
+        <h1 style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ; color:lavender" ><b> Welcome to BlogHub</b></h1>
+        <br>
+
+        <ng-container *ngFor="let data of Data">
+    
+            <div class="news-container">
+    
+                <div class="news-card" style="background-image: url(./assets/e.avif);">
+                    <br>
+    
+                    <div>
+    
+                        <!-- <img [src]="data.url" style="width:70%; height:230px;"> -->
+                        <img [src]="data.url" style="width:70%; height:150px; border-radius: 5px; border: 2px solid black;" >
+    
+                    </div>
+                    <br>
+    
+                    <div class="card-body">
+    
+                    <p class="card-text"><b> {{data.title}}</b></p>
+    
+                    <p class="card-text"> {{data.author}}</p>
+    
+                    </div>
+                    <br>
+    
+                    <div class="news-buttons">
+    
+                        <button class="btn-read"   routerLink='/comment/{{data.id}}'>Add Comment</button>
+    
+                        <button class="btn-detail" routerLink = '/detail/{{data.id}}'>Details</button>
+    
+                    </div>
+    
+                </div>
+    
+            </div>  
+    
+        </ng-container>
+    
+    </div>
+    </div>

@@ -1,0 +1,25 @@
+name: lopa-login-ci-pipeline
+trigger:
+- none
+stages:
+- stage:
+  jobs:
+  - job:
+    pool: 
+      lopa-agent
+    steps:
+    - task: Maven@4
+      displayName: 'Build-jar-File-login'
+      inputs:
+        mavenPOMFile: 'pom.xml'
+        goals: 'install'
+        publishJUnitResults: true
+        testResultsFiles: '**/surefire-reports/TEST-*.xml'
+        sonarQubeRunAnalysis: false
+    - task: Docker@2
+      inputs:
+        containerRegistry: 'lopa-service'
+        repository: 'lopanath12345/itc-project'
+        command: 'buildAndPush'
+        dockerfile: 'Dockerfile'
+        tags: 'lopa-login-image21'
